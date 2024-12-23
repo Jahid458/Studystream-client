@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const Assignments = () => {
     const[assignments,setAssignments] = useState([]);
@@ -13,6 +14,19 @@ const Assignments = () => {
   }
 
   console.log(assignments);
+
+  const handleDelete =async id => {
+    try {
+        const {data} = await axios.delete(`${import.meta.env.VITE_API_URL}/allAssignment/${id}`)
+        console.log(data);
+        toast.success('Delete Assingment Succesfully');
+    fetchAllAssignments();
+    } catch (error) {
+        console.log(error);
+        toast.error(error.message)
+        
+    }
+  }
 
 
 
@@ -44,7 +58,7 @@ const Assignments = () => {
               </p>
               <div className="flex justify-between mt-4">
                 <button
-                //   onClick={() => handleDelete(assignment.id)}
+                  onClick={() => handleDelete(assignment._id)}
                   className="px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600"
                 >
                   Delete

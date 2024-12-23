@@ -1,8 +1,9 @@
 import axios from 'axios';
-import {  useState } from 'react';
+import {  useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import toast from 'react-hot-toast';
+import AuthContext from '../components/AuthContext';
 // import { useNavigate } from 'react-router-dom';
 // import { AuthContext } from '../providers/AuthProvider';
 
@@ -11,7 +12,7 @@ import toast from 'react-hot-toast';
 
 const AddAssignment = () => {
   const [dueDate, setDueDate] = useState(new Date());
-//   const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   // const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -22,6 +23,9 @@ const AddAssignment = () => {
     const marks = parseFloat(form.marks.value);
     const thumbnail = form.thumbnail.value;
     const difficulty = form.difficulty.value;
+    const email = user?.email; 
+
+
 
     const formData = {
       title,
@@ -30,11 +34,12 @@ const AddAssignment = () => {
       thumbnail,
       difficulty,
       dueDate,
-    //   createdBy: {
-    //     email: user?.email,
-    //     name: user?.displayName,
-    //     photo: user?.photoURL,
-    //   },
+      email
+      // createdBy: {
+      //   email: user?.email,
+      //    name: user?.displayName,
+      //    photo: user?.photoURL,
+      // },
     };
 
     console.log('Submitted  Data:', formData);
