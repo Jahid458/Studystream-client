@@ -7,13 +7,17 @@ import CreateAssignments from "../pages/CreateAssignments";
 import MyAttemptAssign from "../pages/MyAttemptAssign";
 import Assignments from "../pages/Assignments";
 import PendingAssignments from "../pages/PendingAssignments";
+import Home from "../pages/Home/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main/>,
     children:[
-      
+      {
+        index: "/",
+        element: <Home />,
+      },
       {
         path:'/create-Assign',
         element:<PrivateRoute>
