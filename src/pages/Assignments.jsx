@@ -1,15 +1,25 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import AuthContext from "../components/AuthContext";
+import { Link } from "react-router-dom";
+
 
 const Assignments = () => {
+  const {user} = useContext(AuthContext);
+  console.log(user);
+
     const[assignments,setAssignments] = useState([]);
   useEffect(()=>{
     fetchAllAssignments()
   },[])
 
   const fetchAllAssignments = async ()=>{
-    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/allAssignment`);
+    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/allAssignment`,{
+      headers: {
+        'user-email': `${user?.email}`
+      } 
+    });
     setAssignments(data)
   }
 
@@ -17,10 +27,10 @@ const Assignments = () => {
 
   const handleDelete =async id => {
     try {
-        const {data} = await axios.delete(`${import.meta.env.VITE_API_URL}/allAssignment/${id}`)
+        const {data} = await axios.delete(`${import.meta.env.VITE_API_URL}/deleteAssignment/${id}`)
         console.log(data);
         toast.success('Delete Assingment Succesfully');
-    fetchAllAssignments();
+        fetchAllAssignments();
     } catch (error) {
         console.log(error);
         toast.error(error.message)
@@ -36,7 +46,7 @@ const Assignments = () => {
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {assignments.map((assignment) => (
           <div
-            key={assignment.id}
+            key={assignment._id}
             className="bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105"
           >
             <img
@@ -63,14 +73,16 @@ const Assignments = () => {
                 >
                   Delete
                 </button>
-                <button
-                  onClick={() => console.log('Update:', assignment.id)}
+              <Link to={`/allAssignment/${assignment._id}`}>
+              <button
+          
                   className="px-3 py-1 bg-blue-500 text-white text-sm rounded hover:bg-blue-600"
                 >
                   Update
                 </button>
+              </Link >
                 <button
-                  onClick={() => console.log('View:', assignment.id)}
+               
                   className="px-3 py-1 bg-green-500 text-white text-sm rounded hover:bg-green-600"
                 >
                   View
