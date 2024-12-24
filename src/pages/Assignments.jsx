@@ -81,12 +81,15 @@ const Assignments = () => {
                   Update
                 </button>
               </Link >
+
+              <Link to={`/assignmentDetails/${assignment._id}`}>
                 <button
                
                   className="px-3 py-1 bg-green-500 text-white text-sm rounded hover:bg-green-600"
                 >
                   View
-                </button>
+                </button>    
+              </Link>
               </div>
             </div>
           </div>
