@@ -24,10 +24,13 @@ const AssignmentDetails = () => {
 
   const handleSubmit = async () => {
     const submissionData = {
+      tittle: assignment.title,
       assignmentId: id,
       userEmail: user?.email,
       googleDocLink: submissionLink,
       note,
+      marks:assignment.marks
+      
     };
     console.log(submissionData);
 
