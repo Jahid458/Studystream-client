@@ -10,6 +10,7 @@ const MyAttemptAssign = () => {
   useEffect(() => {
     const fetchAssignments = async () => {
       try {
+     
         const { data } = await axios.get(
           `${import.meta.env.VITE_API_URL}/mysubmitassignment/${user?.email}`
         );
@@ -26,6 +27,7 @@ const MyAttemptAssign = () => {
     <div className="container mx-auto my-8">
       <h1 className="text-2xl font-bold text-center mb-6">My Submitted Assignments</h1>
       <div className="overflow-x-auto">
+     
         <table className="table-auto w-full border">
           <thead>
             <tr>

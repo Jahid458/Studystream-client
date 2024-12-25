@@ -107,7 +107,7 @@ const AssignmentDetails = () => {
                 </button>
                 <button
                   type="button"
-                  className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                  className="px-4 py-2 btn bg-green-500 text-white rounded hover:bg-green-600"
                   onClick={handleSubmit}
                 >
                   Submit
