@@ -20,18 +20,17 @@
     }
   }
 
-  /* Light Theme */
 .light {
   --bg-color: white;
   --text-color: black;
-  --nav-bg-color: #38a169; /* green */
+  --nav-bg-color: #38a169; 
 }
 
-/* Dark Theme */
+
 .dark {
   --bg-color: #1a202c;
   --text-color: white;
-  --nav-bg-color: #2d3748; /* dark gray */
+  --nav-bg-color: #2d3748; 
 }
 
 html, body {
