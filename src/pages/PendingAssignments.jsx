@@ -10,13 +10,17 @@ const PendingAssignments = () => {
   const [marks, setMarks] = useState('');
   const [feedback, setFeedback] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const axiosInter = AxiosSecure();
 
   useEffect(() => {
     const fetchPendingAssignments = async () => {
       try {
+        setLoading(true)
         const { data } = await axiosInter.get(`${import.meta.env.VITE_API_URL}/pendingAssignments`);
         setAssignments(data);
+        setLoading(false)
+
       } catch (error) {
         console.error('Error fetching pending assignments:', error);
       }
@@ -54,6 +58,17 @@ const PendingAssignments = () => {
         toast.error('Error updating marks:', error);
     }
   };
+
+  
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="loader"></div>
+        <p className="text-gray-500 text-lg ml-4">Loading assignments...</p>
+      </div>
+    );
+  }
+
 
   return (
     <div className="container mx-auto my-8">

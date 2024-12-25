@@ -19,4 +19,29 @@
       transform: rotate(360deg);
     }
   }
+
+  /* Light Theme */
+.light {
+  --bg-color: white;
+  --text-color: black;
+  --nav-bg-color: #38a169; /* green */
+}
+
+/* Dark Theme */
+.dark {
+  --bg-color: #1a202c;
+  --text-color: white;
+  --nav-bg-color: #2d3748; /* dark gray */
+}
+
+html, body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  background-color: var(--nav-bg-color);
+}
+
   

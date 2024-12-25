@@ -6,15 +6,17 @@ import AxiosSecure from '../hooks/AxiosSecure';
 const MyAttemptAssign = () => {
   const { user } = useContext(AuthContext); 
   const [assignments, setAssignments] = useState([]);
+  const [loading, setLoading] = useState(true);
   const axiosInter = AxiosSecure();
   useEffect(() => {
     const fetchAssignments = async () => {
       try {
-     
+        setLoading(true)
         const { data } = await axiosInter.get(
           `${import.meta.env.VITE_API_URL}/mysubmitassignment/${user?.email}`
         );
         setAssignments(data);
+        setLoading(false)
       } catch (error) {
         console.error('Error fetching submitted assignments:', error);
       }
@@ -22,6 +24,17 @@ const MyAttemptAssign = () => {
     fetchAssignments();
   }, [user?.email]);
   console.log(assignments);
+
+  
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="loader"></div>
+        <p className="text-gray-500 text-lg ml-4">Loading assignments...</p>
+      </div>
+    );
+  }
+
 
   return (
     <div className="container mx-auto my-8">

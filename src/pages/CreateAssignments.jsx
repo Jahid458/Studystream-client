@@ -15,6 +15,8 @@ const AddAssignment = () => {
   const [dueDate, setDueDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const axiosInter = AxiosSecure();
+  
+
   // const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -45,8 +47,9 @@ const AddAssignment = () => {
 
     try {
       // Make a POST request
+      
       await  axiosInter.post(`${import.meta.env.VITE_API_URL}/assignmentcreate`, formData);
-
+   
       // Reset form
       form.reset();
       setDueDate(new Date()); // Reset due date
@@ -58,6 +61,9 @@ const AddAssignment = () => {
       toast.error('Failed to add assignment: ' + error.message);
     }
   };
+
+  
+  
 
   return (
     <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>

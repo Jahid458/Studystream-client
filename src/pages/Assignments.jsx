@@ -7,7 +7,7 @@ import AxiosSecure from "../hooks/AxiosSecure";
 const Assignments = () => {
   const { user } = useContext(AuthContext);
   const [assignments, setAssignments] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true);
   const axiosInter = AxiosSecure();
   useEffect(() => {
     fetchAllAssignments();
