@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import toast from 'react-hot-toast';
 import AuthContext from '../components/AuthContext';
+import AxiosSecure from '../hooks/AxiosSecure';
 // import { useNavigate } from 'react-router-dom';
 // import { AuthContext } from '../providers/AuthProvider';
 
@@ -13,6 +14,7 @@ import AuthContext from '../components/AuthContext';
 const AddAssignment = () => {
   const [dueDate, setDueDate] = useState(new Date());
   const { user } = useContext(AuthContext);
+  const axiosInter = AxiosSecure();
   // const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -24,6 +26,7 @@ const AddAssignment = () => {
     const thumbnail = form.thumbnail.value;
     const difficulty = form.difficulty.value;
     const email = user?.email; 
+    
 
 
 
@@ -35,18 +38,14 @@ const AddAssignment = () => {
       difficulty,
       dueDate,
       email
-      // createdBy: {
-      //   email: user?.email,
-      //    name: user?.displayName,
-      //    photo: user?.photoURL,
-      // },
+     
     };
 
-    console.log('Submitted  Data:', formData);
+    // console.log('Submitted  Data:', formData);
 
     try {
       // Make a POST request
-      await  axios.post(`${import.meta.env.VITE_API_URL}/assignmentcreate`, formData);
+      await  axiosInter.post(`${import.meta.env.VITE_API_URL}/assignmentcreate`, formData);
 
       // Reset form
       form.reset();

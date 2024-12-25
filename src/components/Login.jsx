@@ -19,6 +19,7 @@ const Login = () => {
     .then((res) => {
       setUser(res.user)
       navigate(location?.state ? location.state : "/");
+      
       Swal.fire({
         position: "center",
         icon: "success",
@@ -42,6 +43,7 @@ const Login = () => {
     .then((res) => {
       setUser(res.user)
       toast.success("LogIn Succesfully")
+    
       navigate(location?.state ? location.state : "/");
   
     })

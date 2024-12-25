@@ -1,17 +1,17 @@
-// import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../components/AuthContext';
-import axios from 'axios';
+import AxiosSecure from '../hooks/AxiosSecure';
+
 
 const MyAttemptAssign = () => {
-  const { user } = useContext(AuthContext); // Get logged-in user's info
+  const { user } = useContext(AuthContext); 
   const [assignments, setAssignments] = useState([]);
-
+  const axiosInter = AxiosSecure();
   useEffect(() => {
     const fetchAssignments = async () => {
       try {
      
-        const { data } = await axios.get(
+        const { data } = await axiosInter.get(
           `${import.meta.env.VITE_API_URL}/mysubmitassignment/${user?.email}`
         );
         setAssignments(data);

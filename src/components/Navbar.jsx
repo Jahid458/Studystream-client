@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='navbar w-full bg-base-400 shadow-md px-4'>
+    <div className='navbar w-full bg-green-400 shadow-md px-4'>
       <div className='container mx-auto flex justify-between items-center'>
         {/* Brand */}
         <div className='flex items-center'>
@@ -19,8 +19,8 @@ const Navbar = () => {
          
 
             <img src={logo} className='w-14' />
-            <span className='font-bold text-2xl rounded-md p-2 hover:bg-green-300 hover:text-white'>
-              Study<span className="text-green-500">Stream</span>
+            <span className='font-bold text-2xl rounded-md p-2 hover:bg-orange-300 hover:text-white'>
+              Study<span className="text-white">Stream</span>
             </span>
           </Link>
         </div>

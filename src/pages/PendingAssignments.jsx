@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import AuthContext from '../components/AuthContext';
 import toast from 'react-hot-toast';
+import AxiosSecure from '../hooks/AxiosSecure';
 
 const PendingAssignments = () => { 
   const { user } = useContext(AuthContext); 
@@ -10,11 +10,12 @@ const PendingAssignments = () => {
   const [marks, setMarks] = useState('');
   const [feedback, setFeedback] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+  const axiosInter = AxiosSecure();
 
   useEffect(() => {
     const fetchPendingAssignments = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/pendingAssignments`);
+        const { data } = await axiosInter.get(`${import.meta.env.VITE_API_URL}/pendingAssignments`);
         setAssignments(data);
       } catch (error) {
         console.error('Error fetching pending assignments:', error);
@@ -35,7 +36,7 @@ const PendingAssignments = () => {
     }
 
     try {
- await axios.patch(
+ await axiosInter.patch(
         `${import.meta.env.VITE_API_URL}/updateAssignment/${selectedAssignment}`,
         {
           email: user.email,

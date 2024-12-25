@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import AuthContext from "../components/AuthContext";
+import AxiosSecure from "../hooks/AxiosSecure";
 
 const AssignmentDetails = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ const AssignmentDetails = () => {
   const [showModal, setShowModal] = useState(false);
   const [submissionLink, setSubmissionLink] = useState('');
   const [note, setNote] = useState('');
-
+  const axiosInter = AxiosSecure();
   useEffect(() => {
     fetchAssignmentDetails();
   }, [id]);
@@ -35,7 +36,7 @@ const AssignmentDetails = () => {
     console.log(submissionData);
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/submitAssignment`, submissionData);
+      await axiosInter.post(`${import.meta.env.VITE_API_URL}/submitAssignment`, submissionData);
       toast.success('Assignment submitted successfully!');
       setShowModal(false);
     } catch (error) {

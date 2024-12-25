@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import AxiosSecure from "../hooks/AxiosSecure";
 
 
 const UpdateAssignment = () => {
@@ -13,6 +13,9 @@ const UpdateAssignment = () => {
     const {id} = useParams();
   const[assignments,setAssignments] = useState([]);
   const navigate = useNavigate();
+  const axiosInter = AxiosSecure();
+    
+ 
   console.log(assignments);
   useEffect(()=>{
     fetchAllAssignments()
@@ -33,13 +36,11 @@ const UpdateAssignment = () => {
     const difficulty = form.difficulty.value;
 
 
-    const formData = {
-        title,description,marks,thumbnail,difficulty
-    }
+    const formData = {title,description,marks,thumbnail,difficulty}
     
 
     try {
-        await axios.put(`${import.meta.env.VITE_API_URL}/updateAssignment/${id}`,formData)
+        await axiosInter.patch(`${import.meta.env.VITE_API_URL}/updateAssignment/${id}`,formData)
         form.reset();
         toast.success('Data Updated Successfully');
         navigate('/Assignments')

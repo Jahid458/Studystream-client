@@ -1,39 +1,42 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import AuthContext from "../components/AuthContext";
 import { Link } from "react-router-dom";
+import AxiosSecure from "../hooks/AxiosSecure";
 
 const Assignments = () => {
   const { user } = useContext(AuthContext);
   const [assignments, setAssignments] = useState([]);
   const [loading, setLoading] = useState(true); // Loading state
-
+  const axiosInter = AxiosSecure();
   useEffect(() => {
     fetchAllAssignments();
   }, []);
 
   const fetchAllAssignments = async () => {
     try {
-      setLoading(true); 
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/allAssignment`);
+      setLoading(true);
+      const { data } = await axiosInter.get(
+        `${import.meta.env.VITE_API_URL}/allAssignment`
+      );
       setAssignments(data);
     } catch (error) {
       console.error("Error fetching assignments:", error);
       toast.error("Failed to fetch assignments.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
-    
- 
+
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/deleteAssignment/${id}`);
+      const { data } = await axiosInter.delete(
+        `${import.meta.env.VITE_API_URL}/deleteAssignment/${id}`
+      );
       // console.log(data);
       //  if (user?.email === data.email) return toast.error("Action not permitted");
       toast.success("Assignment deleted successfully.");
-      fetchAllAssignments(); 
+      fetchAllAssignments();
     } catch (error) {
       console.error("Error deleting assignment:", error);
       toast.error("Failed to delete assignment.");
@@ -43,7 +46,7 @@ const Assignments = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="loader"></div> 
+        <div className="loader"></div>
         <p className="text-gray-500 text-lg ml-4">Loading assignments...</p>
       </div>
     );
