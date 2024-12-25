@@ -25,11 +25,13 @@ const Assignments = () => {
       setLoading(false); 
     }
   };
-
+    
+ 
   const handleDelete = async (id) => {
     try {
       const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/deleteAssignment/${id}`);
-      if (user?.email !== data.email) return toast.error("Action not permitted");
+      // console.log(data);
+      //  if (user?.email === data.email) return toast.error("Action not permitted");
       toast.success("Assignment deleted successfully.");
       fetchAllAssignments(); 
     } catch (error) {

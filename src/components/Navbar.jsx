@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import AuthContext from "./AuthContext";
 import { Link } from 'react-router-dom';
+import logo from '/studystream.png'
 
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const Navbar = () => {
           <Link to='/' className='flex gap-2 items-center'>
          
 
-
+            <img src={logo} className='w-14' />
             <span className='font-bold text-2xl rounded-md p-2 hover:bg-green-300 hover:text-white'>
               Study<span className="text-green-500">Stream</span>
             </span>

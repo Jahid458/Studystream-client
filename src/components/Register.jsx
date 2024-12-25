@@ -42,11 +42,11 @@ const Register = () => {
     console.log(name,photo,email,password)
 
 
-    // const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
-    // if(!passwordRegex.test(password)){
-    //    setError("PassWord Should be one upperCase, one lowercase and at least 6 character");
-    //    return 
-    // }
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if(!passwordRegex.test(password)){
+       setError("PassWord Should be one upperCase, one lowercase and at least 6 character");
+       return 
+    }
   
     // Add registration logic here
     handleRegister(email,password)
