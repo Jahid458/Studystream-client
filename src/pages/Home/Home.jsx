@@ -7,6 +7,7 @@ import ResourceLibrary from '../ResourceLibrary';
 const Home = () => {
     return (
         <div className='mt-14 mb-10'>
+          
             <Banner></Banner>
             <EducationJourney></EducationJourney>
             <ResourceLibrary></ResourceLibrary>

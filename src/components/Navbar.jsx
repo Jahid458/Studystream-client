@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-// import ThemeContext from "../context/ThemeContext"; // Import Theme Context
 import AuthContext from "./AuthContext";
 import logo from "/studystream.png";
 import ThemeContext from "../themeProvider/ThemeContext";
 
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
-  const { theme, toggleTheme } = useContext(ThemeContext); // Get theme and toggleTheme function
+  const { theme, toggleTheme } = useContext(ThemeContext); 
 
   const logoutFunc = () => {
     handleLogout();
