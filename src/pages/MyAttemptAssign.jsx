@@ -12,8 +12,10 @@ const MyAttemptAssign = () => {
     const fetchAssignments = async () => {
       try {
         setLoading(true)
-        const { data } = await axiosInter.get(
-          `${import.meta.env.VITE_API_URL}/mysubmitassignment/${user?.email}`
+        const { data } = await axiosInter.get(`${import.meta.env.VITE_API_URL}/mysubmitassignment/${user?.email}`,
+          {
+            withCredentials: true
+          }
         );
         setAssignments(data);
         setLoading(false)
