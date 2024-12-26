@@ -48,14 +48,14 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-none">
           <ul className="menu menu-horizontal px-1 justify-center flex">
-            <li>
+            <li className=" hover:text-white">
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className=" hover:text-white">
               <Link to="/assignments">Assignments</Link>
             </li>
             {user && (
-              <li>
+              <li className=" hover:text-white">
                 <Link to="/pen-assignment">Pending Assignments</Link>
               </li>
             )}
@@ -89,13 +89,13 @@ const Navbar = () => {
             <ul
               tabIndex={0}
               className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow ${
-                theme === "light" ? "bg-base-100" : "bg-gray-700"
+                theme === "light" ? "bg-green-400" : "bg-gray-700"
               } rounded-box w-52`}
             >
-              <li>
+              <li className="hover:text-white">
                 <Link to="/create-Assign">Create Assignments</Link>
               </li>
-              <li>
+              <li className="hover:text-white">
                 <Link to="/my-attempt-assign">My Attempted Assignments</Link>
               </li>
               <li className="mt-2">
