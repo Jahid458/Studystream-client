@@ -103,7 +103,7 @@ const Login = () => {
   
             {/* Login Button */}
             <div className="form-control">
-              <button className="btn btn-primary hover:bg-orange-600 hover:text-white text-xl text-white w-full">Login</button>
+              <button className="btn bg-green-400 hover:bg-green-600 hover:text-white text-xl text-white w-full">Login</button>
             </div>
   
             {/* OR Divider */}

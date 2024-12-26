@@ -12,9 +12,13 @@ const AssignmentDetails = () => {
   const [showModal, setShowModal] = useState(false);
   const [submissionLink, setSubmissionLink] = useState('');
   const [note, setNote] = useState('');
+
   const axiosInter = AxiosSecure();
   useEffect(() => {
+
     fetchAssignmentDetails();
+  
+
   }, [id]);
 
   const fetchAssignmentDetails = async () => {
@@ -44,6 +48,8 @@ const AssignmentDetails = () => {
     }
   };
 
+
+
   return (
     <div className="container mx-auto my-8 ">
       {assignment ? (
@@ -70,7 +76,7 @@ const AssignmentDetails = () => {
          
         </div>
       ) : (
-        <p>Loading assignment details...</p>
+        <div className="loader text-center"></div>
       )}
 
       {showModal && (
