@@ -40,7 +40,7 @@ const UpdateAssignment = () => {
     
 
     try {
-        await axiosInter.patch(`${import.meta.env.VITE_API_URL}/updateAssignment/${id}`,formData)
+        await axiosInter.put(`${import.meta.env.VITE_API_URL}/updateAssignment1/${id}`,formData)
         form.reset();
         toast.success('Data Updated Successfully');
         navigate('/Assignments')
