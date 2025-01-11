@@ -32,7 +32,7 @@ const Banner = () => {
                     style={{
                         backgroundImage: `url(${bannerImage1})`,
                         backgroundSize: 'cover',
-                        height: "600px",
+                        height: "350px",
                         width: "full",
                         backgroundPosition: 'center',
                         display: 'flex',
@@ -55,7 +55,7 @@ const Banner = () => {
                     style={{
                         backgroundImage: `url(${bannerImage2})`,
                         backgroundSize: 'cover',
-                        height: "600px",
+                        height: "350px",
                         width: "full",
                         backgroundPosition: 'center',
                         display: 'flex',
@@ -80,7 +80,7 @@ const Banner = () => {
                     style={{
                         backgroundImage: `url(${bannerImage3})`,
                         backgroundSize: 'cover',
-                        height: "600px",
+                        height: "350px",
                         width: "full",
                         backgroundPosition: 'center',
                         display: 'flex',

@@ -6,7 +6,7 @@ import ThemeContext from "../themeProvider/ThemeContext";
 
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
-  const { theme, toggleTheme } = useContext(ThemeContext); 
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const logoutFunc = () => {
     handleLogout();
@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar w-full shadow-md px-4 ${
+      className={`navbar fixed top-0 left-0 w-full z-50 shadow-md px-4 ${
         theme === "light" ? "bg-green-400" : "bg-gray-800"
       }`}
     >
@@ -22,7 +22,7 @@ const Navbar = () => {
         {/* Brand */}
         <div className="flex items-center">
           <Link to="/" className="flex gap-2 items-center">
-            <img src={logo} className="w-14" />
+            <img src={logo} className="w-14" alt="Logo" />
             <span
               className={`font-bold text-2xl rounded-md p-2 ${
                 theme === "light"
@@ -47,14 +47,14 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-none">
           <ul className="menu menu-horizontal px-1 justify-center flex">
-            <li className=" hover:text-white">
+            <li className="hover:text-white">
               <Link to="/">Home</Link>
             </li>
-            <li className=" hover:text-white">
+            <li className="hover:text-white">
               <Link to="/assignments">Assignments</Link>
             </li>
             {user && (
-              <li className=" hover:text-white">
+              <li className="hover:text-white">
                 <Link to="/pen-assignment">Pending Assignments</Link>
               </li>
             )}
@@ -87,7 +87,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow ${
+              className={`menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow ${
                 theme === "light" ? "bg-green-400" : "bg-gray-700"
               } rounded-box w-52`}
             >
@@ -130,7 +130,7 @@ const Navbar = () => {
             </button>
             <ul
               tabIndex={0}
-              className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow ${
+              className={`menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow ${
                 theme === "light" ? "bg-base-100" : "bg-gray-700"
               } rounded-box w-52`}
             >
