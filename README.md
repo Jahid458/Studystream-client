@@ -15,7 +15,7 @@ StudyStream is an online assignment portal that allows teachers to create assign
  - Swiper 
  - sweetalert
  - axios
-   ### 1️⃣ Prerequisites
+# 1️⃣ Prerequisites
 Ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (Recommended version: 18.x or later)
 - [npm](https://www.npmjs.com/) (Comes with Node.js) or [yarn](https://yarnpkg.com/)
