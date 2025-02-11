@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { FaSearch, FaRegListAlt, FaHandshake } from "react-icons/fa";
+import ThemeContext from "../themeProvider/ThemeContext";
 
 function EducationJourney() {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className=" py-12 px-6">
-      <h2 className="text-3xl font-bold text-center mb-10">Start your Online Education Journey</h2>
+    <div className="mt-20 px-6">
+      <h2 className="text-3xl text-green-600 font-bold text-center mb-10">Start your Online Education Journey</h2>
       <div className="flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:space-x-10">
         {/* Discover Section */}
         <div className="text-center flex flex-col items-center">
@@ -11,7 +14,7 @@ function EducationJourney() {
             <FaSearch className="text-4xl text-green-600" />
           </div>
           <h3 className="text-xl font-semibold mt-4">Discover</h3>
-          <p className="text-gray-500 mt-2 max-w-xs">
+          <p className={`${theme === 'light' ? 'text-gray-500' : 'text-white'} mt-2 max-w-xs`}>
             Browse thousands of Assignment take your journey of Free Exams
           </p>
         </div>
@@ -25,7 +28,7 @@ function EducationJourney() {
             <FaRegListAlt className="text-4xl text-green-600" />
           </div>
           <h3 className="text-xl font-semibold mt-4">Compare</h3>
-          <p className="text-gray-500 mt-2 max-w-xs">
+          <p className={`${theme === 'light' ? 'text-gray-500' : 'text-white'} mt-2 max-w-xs`}>
             See Assignments lists and give the Assignment
           </p>
         </div>
@@ -39,7 +42,7 @@ function EducationJourney() {
             <FaHandshake className="text-4xl text-green-600" />
           </div>
           <h3 className="text-xl font-semibold mt-4">Connect</h3>
-          <p className="text-gray-500 mt-2 max-w-xs">
+          <p className={`${theme === 'light' ? 'text-gray-500' : 'text-white'} mt-2 max-w-xs`}>
             Anyone can Take Assignment and start journey Here
           </p>
         </div>

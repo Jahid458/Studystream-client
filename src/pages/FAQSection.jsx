@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { FaQuestionCircle } from "react-icons/fa";
+import ThemeContext from "../themeProvider/ThemeContext";
 
 const FAQSection = () => {
+  const {theme} = useContext(ThemeContext)
   return (
     <section className="py-20 px-6">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+        <h2 className="text-3xl font-bold text-green-600 mb-8">Frequently Asked Questions</h2>
         <div className="space-y-6">
      
           <div className="collapse collapse-plus border border-base-300 rounded-lg">
@@ -14,7 +17,7 @@ const FAQSection = () => {
               What is Group Study Platform?
             </div>
             <div className="collapse-content">
-              <p className="text-gray-600">
+              <p className={`${theme === "light" ? 'text-gray-600': 'text-whiite' }`}>
                 Group Study Platform is an online web application where you can
                 create assignments, collaborate with friends, and grade each
                 other’s work in a friendly environment.
@@ -30,7 +33,7 @@ const FAQSection = () => {
               How do I create assignments?
             </div>
             <div className="collapse-content">
-              <p className="text-gray-600">
+              <p className={`${theme === "light" ? 'text-gray-600': 'text-whiite' }`}>
                 Once you&apos;re logged in, you can create assignments by navigating
                 to the &apos;Assignments&apos; section and clicking on &apos;Create
                 Assignment&lsquo;. You can then add details like title, description,
@@ -47,7 +50,7 @@ const FAQSection = () => {
               Can I grade my friends&lsquo; assignments?
             </div>
             <div className="collapse-content">
-              <p className="text-gray-600">
+              <p className={`${theme === "light" ? 'text-gray-600': 'text-whiite' }`}>
                 Yes! Once your friends submit their assignments, you can grade
                 them by providing feedback and marking them according to the
                 given criteria.
@@ -63,7 +66,7 @@ const FAQSection = () => {
               Is the platform free to use?
             </div>
             <div className="collapse-content">
-              <p className="text-gray-600">
+              <p className={`${theme === "light" ? 'text-gray-600': 'text-whiite' }`}>
                 Yes! The platform is completely free to use for all registered
                 users. You can create, complete, and grade assignments without
                 any cost.
@@ -79,7 +82,7 @@ const FAQSection = () => {
               How do I reset my password?
             </div>
             <div className="collapse-content">
-              <p className="text-gray-600">
+              <p className={`${theme === "light" ? 'text-gray-600': 'text-whiite' }`}>
                 If you’ve forgotten your password, you can reset it by clicking
                 on the &apos;Forgot Password&apos; link on the login page. You&apos;ll receive
                 instructions to reset it via email.

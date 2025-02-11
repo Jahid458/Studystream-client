@@ -65,7 +65,7 @@ const Navbar = () => {
           className="rounded-2xl text-2xl ml-2"
           aria-label="Toggle Theme"
         >
-          {theme === "light" ? "🌙 " : "☀️ "}
+          {theme === "light" ? "🌙 " : "☀️"}
         </button>
 
         {/* Profile Dropdown */}

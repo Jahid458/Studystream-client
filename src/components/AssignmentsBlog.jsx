@@ -28,12 +28,12 @@ const AssignmentsBlog = () => {
   ]);
 
   return (
-    <div className=" py-6 mt-5">
-      <div className="container mx-auto px-4">
+    <div className="mt-20">
+      <div className="container mx-auto px-4 space-y-10">
         <h1 className="text-3xl font-bold text-center text-green-600">
           Assignment Blog Section
         </h1>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6  md:grid-cols-2 lg:grid-cols-3">
           {assignments.map((assignment) => (
             <div
               key={assignment.id}

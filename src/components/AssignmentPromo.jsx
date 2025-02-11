@@ -1,18 +1,21 @@
 
 import { Link } from "react-router-dom";
 import img from "../../public/imagesdefa.jpg"; // Replace with your promotional image path
+import { useContext } from "react";
+import ThemeContext from "../themeProvider/ThemeContext";
 
 const AssignmentPromo = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="">
-      <div className="container mx-auto px-6 ">
+    <div className="mt-10">
+      <div className="container mx-auto px-6 space-y-10 ">
         {/* Hero Section */}
         <div className="flex flex-col lg:flex-row items-center justify-between">
-          <div className="lg:w-1/2  lg:mb-0">
+          <div className="lg:w-1/3  lg:mb-0">
             <h1 className="text-4xl font-bold text-green-600 mb-4">
               Simplify Your Assignments with Ease!
             </h1>
-            <p className="text-lg text-gray-700 mb-6">assignmentImage
+            <p className={` ${theme === "light" ? 'text-gray-700' : "text-white" }text-lg  mb-6`}>assignmentImage
               Struggling with managing assignments? Our platform helps you stay
               organized, improve productivity, and achieve academic success.
               Access tools to create, submit, and track assignments seamlessly.
@@ -23,7 +26,7 @@ const AssignmentPromo = () => {
               </button>
             </Link>
           </div>
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 mt-10">
             <img
               src={img}
               alt="Assignment Promo"
@@ -33,11 +36,11 @@ const AssignmentPromo = () => {
         </div>
 
         {/* Features Section */}
-        <div className="mt-12">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+        <div className="mt-20">
+          <h2 className="text-3xl font-bold text-center text-green-600 mb-8">
             Why Choose Our Assignment Platform?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-7">
             {/* Feature 1 */}
             <div className="bg-white rounded-lg shadow-lg p-6">
               <h3 className="text-xl font-bold text-green-600 mb-2">
@@ -102,10 +105,10 @@ const AssignmentPromo = () => {
 
         {/* Call-to-Action Section */}
         <div className="mt-12 text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl font-bold text-green-600 mb-4">
             Ready to Get Started?
           </h2>
-          <p className="text-lg text-gray-600 mb-6">
+          <p className={`${theme == 'light' ? "text-gray-600" : "text-white"}text-lg  mb-6`}>
             Join our platform today and make assignment management stress-free!
           </p>
           <Link to="/register">
