@@ -8,7 +8,6 @@ const Main = () => {
     <div>
       <Toaster></Toaster>
       <Navbar />
-
       <div className="min-h-[calc(100vh-290px)]">
         <Outlet></Outlet>
       </div>

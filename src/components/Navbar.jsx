@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "./AuthContext";
-import logo from "/studystream.png";
 import ThemeContext from "../themeProvider/ThemeContext";
 
 const Navbar = () => {
@@ -22,11 +21,11 @@ const Navbar = () => {
         {/* Brand */}
         <div className="flex items-center">
           <Link to="/" className="flex gap-2 items-center">
-            <img src={logo} className="w-14" alt="Logo" />
+            {/* <img src={logo} className="w-14" alt="Logo" /> */}
             <span
               className={`font-bold text-2xl rounded-md p-2 ${
                 theme === "light"
-                  ? "hover:bg-orange-300 hover:text-white"
+                  ? " hover:text-white"
                   : "hover:bg-gray-700 hover:text-yellow-400"
               }`}
             >
@@ -40,19 +39,19 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-none">
           <ul className="menu menu-horizontal px-1 justify-center flex">
-            <li className="hover:text-white">
+            <li className=" text-white hover:text-black">
               <Link to="/">Home</Link>
             </li>
-            <li className="hover:text-white">
+            <li className=" text-white hover:text-black">
               <Link to="/assignments">Assignments</Link>
             </li>
             {user && (
-              <li className="hover:text-white">
+              <li className=" text-white hover:text-black">
                 <Link to="/pen-assignment">Pending Assignments</Link>
               </li>
             )}
             {!user && (
-              <li>
+              <li className=" text-white hover:text-black">
                 <Link to="/login">Login</Link>
               </li>
             )}
@@ -90,20 +89,20 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className={`menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow ${
-                theme === "light" ? "bg-green-400" : "bg-gray-700"
-              } rounded-box w-52`}
+              className={`menu menu-sm dropdown-content mt-3 z-[60] px-3 py-5 shadow ${
+                theme === "light" ? "bg-green-600" : "bg-gray-700"
+              } rounded-box w-60`}
             >
-              <li className="hover:text-white">
+              <li className=" text-white hover:text-black">
                 <Link to="/create-Assign">Create Assignments</Link>
               </li>
-              <li className="hover:text-white">
+              <li className=" text-white hover:text-black">
                 <Link to="/my-attempt-assign">My Attempted Assignments</Link>
               </li>
               <li className="mt-2">
                 <button
                   onClick={logoutFunc}
-                  className="bg-gray-200 block text-center"
+                  className="bg-gray-200 p-2 block text-center"
                 >
                   Logout
                 </button>
@@ -147,18 +146,18 @@ const Navbar = () => {
                 <Link to="/assignments">Assignments</Link>
               </li>
               {user && (
-                <li>
+                <><li>
                   <Link to="/pen-assignment">Pending Assignments</Link>
-                </li>
+                </li><li className="mt-2">
+                    <button
+                      onClick={logoutFunc}
+                      className="bg-gray-200 block text-center"
+                    >
+                      Logout
+                    </button>
+                  </li></>
               )}
-              <li className="mt-2">
-                <button
-                  onClick={logoutFunc}
-                  className="bg-gray-200 block text-center"
-                >
-                  Logout
-                </button>
-              </li>
+             
               {!user && (
                 <li>
                   <Link to="/login">Login</Link>
