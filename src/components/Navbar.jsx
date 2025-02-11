@@ -35,14 +35,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Theme Toggle Button */}
-        <button
-          onClick={toggleTheme}
-          className="btn btn-sm btn-outline mx-4"
-          aria-label="Toggle Theme"
-        >
-          {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
-        </button>
+        
 
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-none">
@@ -65,6 +58,16 @@ const Navbar = () => {
             )}
           </ul>
         </div>
+
+        {/* Theme Toggle Button */}
+        <div className="ml-4 flex justify-center items-center">  
+        <button
+          onClick={toggleTheme}
+          className="rounded-2xl text-2xl ml-2"
+          aria-label="Toggle Theme"
+        >
+          {theme === "light" ? "🌙 " : "☀️ "}
+        </button>
 
         {/* Profile Dropdown */}
         {user && (
@@ -108,7 +111,10 @@ const Navbar = () => {
             </ul>
           </div>
         )}
+        </div>
 
+
+        
         {/* Mobile Menu */}
         <div className="md:hidden flex items-center">
           <div className="dropdown dropdown-end">

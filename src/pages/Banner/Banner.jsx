@@ -10,7 +10,7 @@ import bannerImage3 from '../../assets/images3.jpeg'
 
 const Banner = () => {
     return (
-        <div className=' py-20 mx-auto'>
+        <div className=''>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -24,7 +24,7 @@ const Banner = () => {
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
-                className='mySwiper'
+                className='mySwiper '
             >
                 {/* 1st  */}
 
@@ -32,7 +32,7 @@ const Banner = () => {
                     style={{
                         backgroundImage: `url(${bannerImage1})`,
                         backgroundSize: 'cover',
-                        height: "350px",
+                        height: "500px",
                         width: "full",
                         backgroundPosition: 'center',
                         display: 'flex',
@@ -55,7 +55,7 @@ const Banner = () => {
                     style={{
                         backgroundImage: `url(${bannerImage2})`,
                         backgroundSize: 'cover',
-                        height: "350px",
+                        height: "500px",
                         width: "full",
                         backgroundPosition: 'center',
                         display: 'flex',
@@ -80,7 +80,7 @@ const Banner = () => {
                     style={{
                         backgroundImage: `url(${bannerImage3})`,
                         backgroundSize: 'cover',
-                        height: "350px",
+                        height: "500px",
                         width: "full",
                         backgroundPosition: 'center',
                         display: 'flex',
