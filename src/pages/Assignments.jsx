@@ -128,7 +128,7 @@ const Assignments = () => {
                   </button>
                 )}
                 <Link to={`/allAssignment/${assignment._id}`}>
-                  <button className="px-3 py-1 btn btn-primary text-white text-sm rounded hover:bg-blue-600">
+                  <button className="px-3 py-1 btn  btn-warning text-white text-sm rounded hover:bg-blue-600">
                     Update
                   </button>
                 </Link>
