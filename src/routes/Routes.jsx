@@ -12,11 +12,13 @@ import UpdateAssignment from "../pages/UpdateAssignment";
 import AssignmentDetails from "../pages/AssignmentDetails";
 import TeacherDetails from "../pages/TeacherDetails";
 import ContactPage from "../components/ContactPage";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main/>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         index: "/",
@@ -61,19 +63,18 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element:<ContactPage></ContactPage>
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
       }
-
-
     ]
   },
-  {
-    path: "login",
-    element: <Login></Login>,
-  },
-  {
-    path: "register",
-    element: <Register></Register>,
-  }
+ 
 ]);
 
 export default router;

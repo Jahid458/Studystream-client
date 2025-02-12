@@ -80,9 +80,9 @@ const UpdateAssignment = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
-      <section className="p-6 mx-auto bg-white rounded-md shadow-md">
-        <h2 className="text-lg font-semibold text-gray-700 capitalize">Update Assignment</h2>
+    <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12 ">
+      <section className="p-6 mx-auto bg-white rounded-md shadow-md mt-7">
+        <h2 className="text-lg font-semibold text-gray-700 capitalize text-center">Update Assignment</h2>
 
         <form onSubmit={handleUpdate}>
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">

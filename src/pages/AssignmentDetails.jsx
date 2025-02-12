@@ -15,10 +15,7 @@ const AssignmentDetails = () => {
 
   const axiosInter = AxiosSecure();
   useEffect(() => {
-
     fetchAssignmentDetails();
-  
-
   }, [id]);
 
   const fetchAssignmentDetails = async () => {
@@ -51,7 +48,7 @@ const AssignmentDetails = () => {
 
 
   return (
-    <div className="container mx-auto my-8 ">
+    <div className="container mx-auto my-8 mt-28">
       {assignment ? (
         <div className="bg-white p-6 rounded shadow-md ">
             <img src={assignment.thumbnail} alt={assignment.title} className="w-full h-[600px] object-cover mb-4 rounded" />
@@ -69,14 +66,14 @@ const AssignmentDetails = () => {
           </p>
           <button
             onClick={() => setShowModal(true)}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="mt-4 px-4 py-2 btn btn-accent text-white rounded hover:bg-blue-600"
           >
             Take Assignment
           </button>
          
         </div>
       ) : (
-        <div className="loader text-center"></div>
+        <div className="loader justify-center items-center "></div>
       )}
 
       {showModal && (
@@ -114,7 +111,7 @@ const AssignmentDetails = () => {
                 </button>
                 <button
                   type="button"
-                  className="px-4 py-2 btn bg-green-500 text-white rounded hover:bg-green-600"
+                  className="px-4 py-2 btn  bg-green-500 text-white rounded hover:bg-green-600"
                   onClick={handleSubmit}
                 >
                   Submit
