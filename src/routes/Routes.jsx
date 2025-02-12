@@ -11,6 +11,7 @@ import Home from "../pages/Home/Home";
 import UpdateAssignment from "../pages/UpdateAssignment";
 import AssignmentDetails from "../pages/AssignmentDetails";
 import TeacherDetails from "../pages/TeacherDetails";
+import ContactPage from "../components/ContactPage";
 
 const router = createBrowserRouter([
   {
@@ -56,7 +57,12 @@ const router = createBrowserRouter([
       {
         path:'teacherDetails',
         element:<TeacherDetails></TeacherDetails>
+      },
+      {
+        path: 'contact',
+        element:<ContactPage></ContactPage>
       }
+
 
     ]
   },

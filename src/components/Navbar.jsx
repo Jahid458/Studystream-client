@@ -59,6 +59,9 @@ const Navbar = () => {
             <li>
               <Link to='/teacherDetails' className=" text-white hover:text-black">TeacherDetails</Link>
             </li>
+            <li>
+              <Link to='/contact' className=" text-white hover:text-black">Contact</Link>
+            </li>
           </ul>
         </div>
 
@@ -159,6 +162,11 @@ const Navbar = () => {
                 <li>
               <Link to='/teacherDetails' >TeacherDetails</Link>
                 </li>
+                <li>
+              <Link to='/contact' >Contact</Link>
+                </li>
+                
+
                 
                 
                 <li className="mt-2">
