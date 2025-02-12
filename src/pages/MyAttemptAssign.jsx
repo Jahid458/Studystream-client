@@ -39,9 +39,9 @@ const MyAttemptAssign = () => {
 
 
   return (
-    <div className="container mx-auto my-8">
-      <h1 className="text-2xl font-bold text-center mb-6">My Submitted Assignments</h1>
+    <div className="container mx-auto ">
       <div className="overflow-x-auto">
+      <h1 className="text-2xl font-bold text-center mb-6 mt-20">My Submitted Assignments</h1>
      
         <table className="table-auto w-full border">
           <thead>

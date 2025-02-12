@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import AuthContext from "../components/AuthContext";
 import AxiosSecure from "../hooks/AxiosSecure";
 import toast from "react-hot-toast";
+import ThemeContext from "../themeProvider/ThemeContext";
 
 const Assignments = () => {
   const { user } = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
   const [assignments, setAssignments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
@@ -17,9 +19,7 @@ const Assignments = () => {
     try {
       setLoading(true);
       const { data } = await axiosInter.get(
-        `${
-          import.meta.env.VITE_API_URL
-        }/filteredAssignments?difficulty=${filter}&search=${searchQuery}`
+        `${import.meta.env.VITE_API_URL}/filteredAssignments?difficulty=${filter}&search=${searchQuery}`
       );
       setAssignments(data);
     } catch (error) {
@@ -61,8 +61,8 @@ const Assignments = () => {
   }
 
   return (
-    <div className="container mx-auto my-8 mt-20">
-      <h1 className="text-2xl font-bold text-center mb-6">Assignments</h1>
+    <div className="container mx-auto  mb-10">
+      <h1 className="text-2xl font-bold text-center mt-16 mb-14">Assignments Lists</h1>
       <form
         onSubmit={handleSearchSubmit}
         className=" justify-between items-center mb-6"
@@ -72,19 +72,19 @@ const Assignments = () => {
           placeholder="Search assignments..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          className="border rounded-md px-4 py-2 w-1/3"
+          className={`border rounded-md px-4 py-2 w-1/3 ${theme === 'light' ? 'text-black': 'text-white bg-black'}`}
         />
            <button
           type="submit"
-          className="px-4 py-2 text-white rounded bg-green-500 "
+          className="px-4 py-2 text-white rounded bg-green-500 ml-7"
         >
-          Search
+          Search.
         </button>
        
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="border rounded-md px-4 py-2 ml-10"
+          className={`border rounded-md px-4 py-2 ml-10 ${theme === 'light' ? 'text-black': 'text-white bg-black'}`}
         >
           <option value="">All Difficulties</option>
           <option value="easy">Easy</option>
@@ -105,7 +105,7 @@ const Assignments = () => {
               className="h-40 w-full object-cover"
             />
             <div className="p-4">
-              <h2 className="text-lg font-semibold">{assignment.title}</h2>
+              <h2 className="text-lg font-semibold text-green-500">{assignment.title}</h2>
               <p className="text-gray-600">Marks: {assignment.marks}</p>
               <p
                 className={`mt-1 text-sm ${

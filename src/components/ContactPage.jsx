@@ -19,7 +19,6 @@ const ContactPage = () => {
         {/* Embedded Location */}
         <div className="lg:shadow-xl  p-6">
           <div className="card-body">
-            <h2 className="card-title text-xl font-semibold text-gray-800">Our Location</h2>
             <iframe
               title="Google Map"
               className="w-full h-64 rounded-lg"
@@ -32,7 +31,7 @@ const ContactPage = () => {
         </div>
       </div>
     </div>
-  );
+  );   
 };
 
 export default ContactPage;
