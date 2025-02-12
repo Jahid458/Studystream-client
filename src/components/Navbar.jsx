@@ -45,6 +45,7 @@ const Navbar = () => {
             <li className=" text-white hover:text-black">
               <Link to="/assignments">Assignments</Link>
             </li>
+        
             {user && (
               <li className=" text-white hover:text-black">
                 <Link to="/pen-assignment">Pending Assignments</Link>
@@ -55,6 +56,9 @@ const Navbar = () => {
                 <Link to="/login">Login</Link>
               </li>
             )}
+            <li>
+              <Link to='/teacherDetails' className=" text-white hover:text-black">TeacherDetails</Link>
+            </li>
           </ul>
         </div>
 
@@ -146,9 +150,18 @@ const Navbar = () => {
                 <Link to="/assignments">Assignments</Link>
               </li>
               {user && (
-                <><li>
+                <>
+                
+                <li>
                   <Link to="/pen-assignment">Pending Assignments</Link>
-                </li><li className="mt-2">
+                </li>
+
+                <li>
+              <Link to='/teacherDetails' >TeacherDetails</Link>
+                </li>
+                
+                
+                <li className="mt-2">
                     <button
                       onClick={logoutFunc}
                       className="bg-gray-200 block text-center"
@@ -163,6 +176,7 @@ const Navbar = () => {
                   <Link to="/login">Login</Link>
                 </li>
               )}
+         
             </ul>
           </div>
         </div>

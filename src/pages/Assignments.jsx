@@ -61,7 +61,7 @@ const Assignments = () => {
   }
 
   return (
-    <div className="container mx-auto my-8">
+    <div className="container mx-auto my-8 mt-20">
       <h1 className="text-2xl font-bold text-center mb-6">Assignments</h1>
       <form
         onSubmit={handleSearchSubmit}
