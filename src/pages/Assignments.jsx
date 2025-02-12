@@ -54,8 +54,8 @@ const Assignments = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen text-center">
-        <div className="loader"></div>
-        <p className="text-gray-500 text-lg ml-4">Loading assignments...</p>
+        <div className="loader "></div>
+        <p className="text-gray-500 text-lg ml-4 ">Loading assignments...</p>
       </div>
     );
   }
